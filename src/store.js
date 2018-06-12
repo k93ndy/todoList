@@ -76,9 +76,10 @@ export default new Vuex.Store({
   },
   actions: {
     getTodos (context) {
-      axios.get(`/todo`).then((res) =>
+      axios.get(`/todo`).then((res) => {
+        console.log(res.data.todos)
         context.commit('getTodos', res.data.todos)
-      )
+      })
     },
     addTodo (context, title) {
       context.commit('addTodo', title)

@@ -7,13 +7,13 @@ for (let i = 1; i <= 3; i++) {
     id: Mock.Random.guid(),
     title: Mock.Random.first(),
     isLocked: Mock.Random.boolean(),
-    isDelete: false,
+    isDeleted: false,
     items: COUNT.map(() => {
       return {
         id: Mock.Random.guid(),
         description: Mock.Random.paragraph(1, 3),
         isCompleted: Mock.Random.boolean(),
-        isDelete: false
+        isDeleted: false
       }
     })
   }))

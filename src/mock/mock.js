@@ -9,19 +9,11 @@ export default {
     let mock = new MockAdapter(axios)
 
     mock.onGet('/todo').reply(config => {
-      let mockTodo = Todos.map(todo => {
-        return {
-          id: todo.id,
-          title: todo.title,
-          isLocked: todo.isLocked,
-          isDelete: todo.isDelete,
-          items: todo.items
-        }
-      }).filter(todo => todo.isDelete === false)
+      let filteredTodos = Todos.filter(todo => todo.isDeleted === false)
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve([200, {
-            todos: mockTodo
+            todos: filteredTodos
           }])
         }, 200)
       })
